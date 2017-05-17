@@ -54,7 +54,7 @@ post '/new_blog' do
     redirect '/profile'
 end
 
-post 'new_comment' do
-    Comment.create(comment: params[comment], user_id: session[:user_id])
+post '/new_comment' do
+    Comment.create(comment: params[:cmt], user_id: session[:user_id])
     redirect '/profile'
 end
