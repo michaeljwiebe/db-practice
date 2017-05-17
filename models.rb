@@ -5,3 +5,7 @@ end
 class Blog < ActiveRecord::Base
     belongs_to :user
 end
+
+class Comment < ActiveRecord::Base
+    belongs_to :user
+end

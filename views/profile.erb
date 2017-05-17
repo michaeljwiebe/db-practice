@@ -1,0 +1,22 @@
+<form action="/new_blog" method="post">
+    <input type="text" name="title" placeholder="title">
+    <input type="text" name="content" value="content">
+    <input type="submit">
+</form>
+
+<% @blogs.each do |blog| %>
+
+    <h4><a href='<%="/content?title=#{blog.title}"%>'><%= blog.title %></a></h4>
+    <div><%= blog.content %></div>
+
+    <% @comments.each do |comment| %>
+        <h5><%= comment.comment %></h5>
+        <h6>Comment by user <%= session[:user_id] %></h6>
+    <% end %>
+<% end %>
+
+<p>Post a comment:</p>
+<form action="/new_comment" method="post">
+    <input type="text" name="comment" placeholder="comment">
+    <input type="submit">
+</form>
