@@ -66,3 +66,8 @@ post '/new_comment' do
     Comment.create(comment: params[:cmt], user_id: session[:user_id], blog_id: params[:blog_id])
     redirect "/view_blog/#{params[:blog_id]}"
 end
+
+post '/logout' do
+    session[:user_id] = nil
+    redirect '/'
+end
