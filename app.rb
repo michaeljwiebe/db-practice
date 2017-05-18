@@ -34,6 +34,12 @@ get '/all_blogs' do
     erb :profile
 end
 
+get '/view_blog' do
+    blog_id = params[:blog_id]
+    blog = Blog.all.where(id: blog_id).first
+    erb :view_blog
+end
+
 post '/login' do
     user = User.where(username: params[:username]).first
     if user.password == params[:password]

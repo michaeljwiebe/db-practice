@@ -6,17 +6,6 @@
 
 <% @blogs.each do |blog| %>
 
-    <h4><a href='<%="/content?title=#{blog.title}"%>'><%= blog.title %></a></h4>
-    <div><%= blog.content %></div>
+    <h4><a href='/view_blog?blog_id=<%=#{blog.id}%>'><%= blog.title %></a></h4>
 
-    <% @comments.each do |comment| %>
-        <h5><%= comment.comment %></h5>
-        <h6>Comment by user <%= session[:user_id] %></h6>
-    <% end %>
 <% end %>
-
-<p>Post a comment:</p>
-<form action="/new_comment" method="post">
-    <input type="text" name="cmt" placeholder="comment">
-    <input type="submit">
-</form>
