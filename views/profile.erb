@@ -6,6 +6,6 @@
 
 <% @blogs.each do |blog| %>
 
-    <h4><a href='/view_blog?blog_id=<%=#{blog.id}%>'><%= blog.title %></a></h4>
+    <h4><a href='/view_blog/<%= blog.id %>'><%= blog.title %></a></h4>
 
 <% end %>

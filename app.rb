@@ -34,9 +34,10 @@ get '/all_blogs' do
     erb :profile
 end
 
-get '/view_blog' do
-    blog_id = params[:blog_id]
-    blog = Blog.all.where(id: blog_id).first
+get '/view_blog/:id' do
+    blog_id = params[:id]
+    @comments = Comment.where(blog_id: blog_id)
+    @blog = Blog.find(blog_id)
     erb :view_blog
 end
 

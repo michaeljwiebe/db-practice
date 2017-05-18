@@ -1,0 +1,13 @@
+<div><%= @blog.title %></div>
+<div><%= @blog.content %></div>
+
+<% @comments.each do |comment| %>
+    <h5><%= comment.comment %></h5>
+    <h6>Comment by user <%= session[:user_id] %></h6>
+<% end %>
+
+<p>Post a comment:</p>
+<form action="/new_comment" method="post">
+    <input type="text" name="cmt" placeholder="comment">
+    <input type="submit">
+</form>
