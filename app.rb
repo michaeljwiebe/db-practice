@@ -57,11 +57,12 @@ post '/new_user' do
 end
 
 post '/new_blog' do
+    @current_user = User.find(session[:user_id])
     Blog.create(title: params[:title], content: params[:content], user_id: session[:user_id])
     redirect '/profile'
 end
 
 post '/new_comment' do
-    Comment.create(comment: params[:cmt], user_id: session[:user_id])
-    redirect '/profile'
+    Comment.create(comment: params[:cmt], user_id: session[:user_id], blog_id: params[:blog_id])
+    redirect "/view_blog/#{params[:blog_id]}"
 end

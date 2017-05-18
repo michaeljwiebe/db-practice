@@ -9,5 +9,6 @@
 <p>Post a comment:</p>
 <form action="/new_comment" method="post">
     <input type="text" name="cmt" placeholder="comment">
+    <input type="hidden" name="blog_id" value="<%= @blog.id %>">
     <input type="submit">
 </form>
